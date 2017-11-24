@@ -13,7 +13,8 @@ require_once("../../../model/modelo_menu_instructor.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Crear fichas</title>
+	<title>Menu Instructor</title>
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="../vendor/datatables/css/datatables.min.css" rel="stylesheet">

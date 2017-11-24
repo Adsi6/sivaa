@@ -300,7 +300,7 @@ $.extend($.validator, {
 //EDITAR AQUI LOS MENSAJES DE ALERTA SEGÚN LA PROPIEDAD QUE SERÍA INGRESADA DE FORMA INVALIDA
 
 	messages: {
-		required: "Ingrese el dato solicitado",
+		required: "Ingrese la información solicitada",
 		remote: "Por favor arregle este campo",
 		email: "Por favor ingrese una dirección de email valida",
 		url: "Por favor ingrese una URL valida",

@@ -16,6 +16,7 @@ $documento = $_SESSION['cedula'];
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Lista de Chequeo</title>
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="../vendor/datatables/css/datatables.min.css" rel="stylesheet">

@@ -1,21 +1,7 @@
 <?php
 //echo "<br>" . $_SERVER['PHP_SELF'];
-//error_reporting(0);
-session_start();
+error_reporting(0);
 require_once("../../../model/modelo_administrador.php");
-
-if ($_GET['update']) {
-    echo "<script language='JavaScript' type='text/javascript'>
-            alert('Regional Actualizada');
-            </script>";
-}
-
-if ($_GET['insert']) {
-    echo "<script language='JavaScript' type='text/javascript'>
-            alert('Regional Insertada');
-            </script>";
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +13,7 @@ if ($_GET['insert']) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Estadisticas</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
     <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <link href="../vendor/datatables/css/datatables.min.css" rel="stylesheet">
@@ -40,6 +27,14 @@ if ($_GET['insert']) {
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
     <script src="../vendor/datatables/js/datatables.min.js"></script>
     <script src="../dist/js/sb-admin-2.js"></script>
+    
+    <link href="../vendor/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="../js/plugins/cropper/cropper.min.js"></script>
+    <script src="../js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <!--<link href="../vendor/css/font-awesome.css" rel="stylesheet">-->
+
+
 
      <script>
         $(document).ready(function(){
@@ -56,39 +51,116 @@ if ($_GET['insert']) {
             });
         });
     </script>
-
+    <script>
+        function habilitar(value)
+        {
+            if(value=="centro" )
+            {
+                document.getElementById('centro').style.display = "block";
+                document.getElementById('sede').style.display = "none";
+                document.getElementById('sede_1').style.display = "none";
+                document.getElementById('programa').style.display = "none";
+                document.getElementById('ambiente').style.display = "none";
+                document.getElementById('sede_2').style.display = "none";
+                document.getElementById('ambiente_1').style.display = "none";
+                document.getElementById('jornada').style.display = "none";
+                document.getElementById('ficha').style.display = "none";
+            }else if(value=="sede" ){
+                document.getElementById('sede').style.display = "block";
+                document.getElementById('sede_1').style.display = "block";
+                document.getElementById('centro').style.display = "none";
+                document.getElementById('programa').style.display = "none";
+                document.getElementById('ambiente').style.display = "none";
+                document.getElementById('sede_2').style.display = "none";
+                document.getElementById('ambiente_1').style.display = "none";
+                document.getElementById('jornada').style.display = "none";
+                document.getElementById('ficha').style.display = "none";
+            }else if(value=="programa" ){
+                document.getElementById('programa').style.display = "block";
+                document.getElementById('centro').style.display = "none";
+                document.getElementById('sede_1').style.display = "none";
+                document.getElementById('sede').style.display = "none";
+                document.getElementById('ambiente').style.display = "none";
+                document.getElementById('sede_2').style.display = "none";
+                document.getElementById('ambiente_1').style.display = "none";
+                document.getElementById('jornada').style.display = "none";
+                document.getElementById('ficha').style.display = "none";
+            }else if(value=="ambiente" ){
+                document.getElementById('ambiente').style.display = "block";
+                document.getElementById('sede_2').style.display = "block";
+                document.getElementById('ambiente_1').style.display = "block";
+                document.getElementById('programa').style.display = "none";
+                document.getElementById('centro').style.display = "none";
+                document.getElementById('sede_1').style.display = "none";
+                document.getElementById('sede').style.display = "none";
+                document.getElementById('jornada').style.display = "none";
+                document.getElementById('ficha').style.display = "none";
+            }else if(value=="jornada" ){
+                document.getElementById('jornada').style.display = "block";
+                document.getElementById('programa').style.display = "none";
+                document.getElementById('centro').style.display = "none";
+                document.getElementById('sede_1').style.display = "none";
+                document.getElementById('sede').style.display = "none";
+                document.getElementById('ambiente').style.display = "none";
+                document.getElementById('sede_2').style.display = "none";
+                document.getElementById('ambiente_1').style.display = "none";
+                document.getElementById('ficha').style.display = "none";
+            }else if(value=="ficha" ){
+                document.getElementById('ficha').style.display = "block";
+                document.getElementById('programa').style.display = "none";
+                document.getElementById('centro').style.display = "none";
+                document.getElementById('sede_1').style.display = "none";
+                document.getElementById('sede').style.display = "none";
+                document.getElementById('ambiente').style.display = "none";
+                document.getElementById('sede_2').style.display = "none";
+                document.getElementById('ambiente_1').style.display = "none";
+                document.getElementById('jornada').style.display = "none";
+            }else{
+                document.getElementById('centro').style.display = "none";
+                document.getElementById('sede_1').style.display = "none";
+                document.getElementById('sede').style.display = "none";
+                document.getElementById('programa').style.display = "none";
+                document.getElementById('ambiente').style.display = "none";
+                document.getElementById('sede_2').style.display = "none";
+                document.getElementById('ambiente_1').style.display = "none";
+                document.getElementById('jornada').style.display = "none";
+                document.getElementById('ficha').style.display = "none";
+            }
+        }
+    </script>
     <script language="javascript">
-        $(document).ready(function(){
-            $("#regional").change(function () {
-                $('#sede').find('option').remove().end().append('<option value=""></option>').val('');
-                $('#ambiente').find('option').remove().end().append('<option value=""></option>').val('');
-                $("#regional option:selected").each(function () {
-                    id_region = $(this).val();
-                    $.post("../../../controller/controlador_administrador.php", { id_region: id_region, cascada: 1, opcion: 1 }, function(data){
-                        $("#centro").html(data);
-                    });
-                });
-            })
-
-            $("#centro").change(function () {
-                $("#centro option:selected").each(function () {
-                    id_centro = $(this).val();
-                    $.post("../../../controller/controlador_administrador.php", { id_centro: id_centro, cascada: 2, opcion: 1 }, function(data){
-                        $("#sede").html(data);
-                    });
-                });
-            })
-
+    $(document).ready(function(){
             $("#sede").change(function () {
                 $("#sede option:selected").each(function () {
-                    id_sede = $(this).val();
-                    $.post("../../../controller/controlador_administrador.php", { id_sede: id_sede, cascada: 3, opcion: 1 }, function(data){
-                        $("#ambiente").html(data);
-                    });
+                    id_centro = $(this).val();
+                    $.post("../../../controller/controlador_administrador.php", { id_centro: id_centro, cascada: 2, opcion: 1 }, function(data){
+                        $("#sede_1").html(data);
+                    });            
                 });
             })
-        });        
-    </script>
+        });
+  </script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+            $("#ambiente").change(function () {
+                $("#ambiente option:selected").each(function () {
+                    id_centro = $(this).val();
+                    $.post("../../../controller/controlador_administrador.php", { id_centro: id_centro, cascada: 2, opcion: 1 }, function(data){
+                        $("#sede_2").html(data);
+                    });            
+                });
+            })
+
+             $("#sede_2").change(function () {
+                $("#sede_2 option:selected").each(function () {
+                    id_sede = $(this).val();
+                    $.post("../../../controller/controlador_administrador.php", { id_sede: id_sede, cascada: 3, opcion: 1 }, function(data){
+                        $("#ambiente_1").html(data);
+                    });            
+                });
+            })
+        });
+  </script>
 </head>
 
 <body>
@@ -113,27 +185,157 @@ if ($_GET['insert']) {
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="panel-heading">
-                                <form method="POST" action="">
-                                    <label>Generar archivo de respuestas sin filtro</label><br>
-                                    <input type="hidden" name="hidden_estadisticas" value="1">
-                                    <input type="submit" class="btn btn-success" name="btn_sin_filtro" value="Generar">
-                                    <div class="hr-line-dashed"></div>
-                                </form>
-                            </div>
-                            <div class="panel-heading">
-                                <button type="button" class="btn btn-success">Crear ficha</button>
-                                <div class="hr-line-dashed"></div>
-                            </div>
-                            <?php
-                                if (isset($_POST['btn_sin_filtro'])) {
-                                    if ($_POST['hidden_estadisticas'] == 1) {
-                                        $estadisticas = new Estadisticas();
-                                        $valor_estadisticas = $estadisticas->select_sin_filtro();    
-                                    }
-                                    
+                                    <div class="col-lg-7"><br>
+                                        <div class="form-group">
+                                            <form method="POST" action="">
+                                                <label>Filtrar informacion por:</label>
+                                                    <select id="select_filtro" name="select_filtro" class="form-control" onchange="habilitar(this.value);" required >
+                                                        <option value="">Seleccione un filtro</option>
+                                                        <option value="centro">Centro</option>
+                                                        <option value="sede">Sede</option>
+                                                        <option value="programa">Programa</option>
+                                                        <option value="ambiente">Ambiente</option>
+                                                        <option value="jornada">Jornada</option>
+                                                        <option value="ficha">Ficha</option>
+                                                    </select><br>
+                                                    <div>
+                                                        <select class="form-control" name="centro" id="centro" style="display: none;" required>
+                                                            <option value="0">Seleccione el centro</option>
+                                                                <?php
+                                                                  $centro_act = new consultas_admin();
+                                                                  $centro_activo = $centro_act->select_centro(1);
 
-                                    //foreach ($valor_estadisticas as $resul_estadisticas) {
-                                        
+                                                                  foreach ($centro_activo as $centro) {
+                                                                    echo "<option value='" . $centro['id_centro'] . "'>" . $centro['nombre_centro'] . " | " . $centro['cod_centro'] . "</option>";
+                                                                  }
+                                                                ?>
+                                                        </select>
+                                                        <select class="form-control" name="sede" id="sede" style="display: none;" required>
+                                                            <option value="0">Seleccione el Centro</option>
+                                                                <?php
+                                                                  $centro_act = new consultas_admin();
+                                                                  $centro_activo = $centro_act->select_centro(1);
+
+                                                                  foreach ($centro_activo as $centro) {
+                                                                    echo "<option value='" . $centro['id_centro'] . "'>" . $centro['nombre_centro'] . " | " . $centro['cod_centro'] . "</option>";
+                                                                  }
+                                                                ?>
+                                                        </select>
+                                                        <select id="sede_1" name="sede_1" class="form-control" style="display: none;" required>
+                                                                <option value="0">Seleccione sede</option>
+                                                        </select>
+                                                        <select class="form-control" name="programa" id="programa" style="display: none;" required>
+                                                            <option value="0">Seleccione el Programa</option>
+                                                                <?php
+                                                                  $programa_act = new consultas_admin();
+                                                                  $programa_activo = $programa_act->select_programa(1);
+
+                                                                  foreach ($programa_activo as $programa) {
+                                                                    echo "<option value='" . $programa['id_programa'] . "'>" . $programa['nombre_programa'] . " | " . $programa['siglas'] . "</option>";
+                                                                  }
+                                                                ?>
+                                                        </select>
+                                                        <select class="form-control" name="ambiente" id="ambiente" style="display: none;" required >
+                                                            <option value="0">Seleccione el Centro</option>
+                                                                <?php
+                                                                  $centro_act = new consultas_admin();
+                                                                  $centro_activo = $centro_act->select_centro(1);
+
+                                                                  foreach ($centro_activo as $centro) {
+                                                                    echo "<option value='" . $centro['id_centro'] . "'>" . $centro['nombre_centro'] . " | " . $centro['cod_centro'] . "</option>";
+                                                                  }
+                                                                ?>
+                                                        </select>
+                                                        <select id="sede_2" name="sede_2" class="form-control" style="display: none;" required >
+                                                                <option value="0">Seleccione sede</option>
+                                                        </select>
+                                                        <select id="ambiente_1" name="ambiente_1" class="form-control" style="display: none;" required >
+                                                                <option value="0">Seleccione Ambiente</option>
+                                                        </select>
+                                                        <select class="form-control" name="jornada" id="jornada" style="display: none;" required >
+                                                            <option value="0">Seleccione el Jornada</option>
+                                                                <?php
+                                                                  $jornada_act = new consultas_admin();
+                                                                  $jornada_activo = $jornada_act->select_jornada(1);
+
+                                                                  foreach ($jornada_activo as $jornada) {
+                                                                    echo "<option value='" . $jornada['id_jornada'] . "'>" . $jornada['nombre_jornada'] . "</option>";
+                                                                  }
+                                                                ?>
+                                                        </select>
+                                                        <select class="form-control" name="ficha" id="ficha" style="display: none;" required>
+                                                            <option value="0">Seleccione el Ficha</option>
+                                                                <?php
+                                                                  $ficha_act = new consultas_admin();
+                                                                  $ficha_activo = $ficha_act->select_ficha(1);
+
+                                                                  foreach ($ficha_activo as $ficha) {
+                                                                    echo "<option value='" . $ficha['id_ficha'] . "'>" . $ficha['numero_ficha'] . " </option>";
+                                                                  }
+                                                                ?>
+                                                        </select>
+                                                        
+                                                    </div><br>
+                                                    <div class="form-group" id="calendario_inicio" >
+                                                        <label class="col-sm-2 control-label">Fecha Inicio</label>
+                                                        <div class="input-group date">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </span>
+                                                            <input type="text" class="form-control" name="fecha_inicio" required >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="calendario_final" >
+                                                        <label class="col-sm-2 control-label">Fecha Final</label>
+                                                        <div class="input-group date">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </span>
+                                                            <input type="text" class="form-control" name="fecha_final" required >
+                                                        </div>
+                                                    </div>
+                                                <input type="submit" class="btn btn-success" name="btn_filtro" value="Generar">
+                                            </form>
+                                        </div>
+                                    </div><br>
+                                     <?php
+                                if (isset($_POST['btn_filtro'])) {
+                                    $select_filtro = $_POST['select_filtro'];
+                                    $centro = $_POST['centro'];
+                                    $sede_1 = $_POST['sede_1'];
+                                    $programa = $_POST['programa'];
+                                    $ambiente_1 = $_POST['ambiente_1'];
+                                    $jornada = $_POST['jornada'];
+                                    $ficha = $_POST['ficha'];
+                                    $fecha_inicio = $_POST['fecha_inicio'];
+                                    $fecha_final = $_POST['fecha_final'];
+                                    if ($select_filtro == 'centro') {
+                                        /*$estadisticas = new Estadisticas();
+                                        $valor_estadisticas = $estadisticas->select_centro($centro,$fecha_inicio,$fecha_final);*/
+                                        echo centro ; 
+                                    }else if ($select_filtro == 'sede') {
+                                        /*$estadisticas = new Estadisticas();
+                                        $valor_estadisticas = $estadisticas->select_sede($sede_1,$fecha_inicio,$fecha_final);  */
+                                        echo sede ; 
+                                    }else if ($select_filtro == 'programa') {
+                                        /*$estadisticas = new Estadisticas();
+                                        $valor_estadisticas = $estadisticas->select_programa($programa,$fecha_inicio,$fecha_final);  */
+                                        echo programa ; 
+                                    }else if ($select_filtro == 'ambiente') {
+                                        /*$estadisticas = new Estadisticas();
+                                        $valor_estadisticas = $estadisticas->select_ambiente($ambiente_1,$fecha_inicio,$fecha_final);  */
+                                        echo ambiente ; 
+                                    }else if ($select_filtro == 'jornada') {
+                                        /*$estadisticas = new Estadisticas();
+                                        $valor_estadisticas = $estadisticas->select_jornada($jornada,$fecha_inicio,$fecha_final);  */
+                                        echo jornada ; 
+                                    }else if ($select_filtro == 'ficha') {
+                                        /*$estadisticas = new Estadisticas();
+                                        $valor_estadisticas = $estadisticas->select_ficha($ficha,$fecha_inicio,$fecha_final);  */
+                                        echo ficha ; 
+                                    }
+
+                                    //foreach ($valor_estadisticas as $resul_estadisticas) {       
                                     
                             ?>
                                     <div class="row">
@@ -157,14 +359,10 @@ if ($_GET['insert']) {
                                                                                     <th>Ambiente</th>
                                                                                     <th>Jornada</th>
                                                                                     <th>Ficha</th>
-                                                                                    <th>Editar</th>
-                                                                                    <th>Inactivar</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr class="odd gradeX">
-                                                                                    <td></td>
-                                                                                    <td></td>
                                                                                     <td></td>
                                                                                     <td></td>
                                                                                     <td></td>
@@ -182,10 +380,11 @@ if ($_GET['insert']) {
                                                 </div>
                                             </div>
                                             <div id="mostrar_2" style="display: none;">
+                                                <?php include'grafica.php';?>
                                             </div>
                                         </div>
                                     </div>
-                            <?php
+                                    <?php
                                     //}
                                 }
                             ?>
@@ -197,55 +396,7 @@ if ($_GET['insert']) {
     </div>
 
 <script src="/sivaa/view/app/js/validate/jquery.validate.js"></script>
-        <script>
-            $().ready(function () {
-                $("#registro").validate({
-                    rules: {
-                        nombre: {
-                            required: true,
-                            minlength: 3
-                        },
 
-                        apellido: {
-                            required: true,
-                            minlength: 3
-                        },
-
-                        correo: {
-                            required: true
-                        },
-
-                        valida_correo: {
-                            required: true,
-                            equalTo_email: "#correo"
-                        },
-
-                        sexo: {
-                            required: true
-                        },
-
-                        direccion: {
-                            required: true,
-                            minlength: 3
-                        },
-
-                        telefono: {
-                            required: true
-                        },
-
-                        pass: {
-                            required: true,
-                            minlength: 8
-                        },
-
-                        valida_pass: {
-                            required: true,
-                            equalTo: "#pass"
-                        }
-                    },
-                });
-            });
-        </script>
     <script>
     $(document).ready(function() {
         $('#tabla_1').DataTable({
@@ -305,6 +456,26 @@ if ($_GET['insert']) {
         });
     });
     </script>
+    <script>
+            $(document).ready(function(){
+                $('#calendario_inicio .input-group.date').datepicker({
+                    todayBtn: "linked",
+                    keyboardNavigation: false,
+                    forceParse: false,
+                    calendarWeeks: true,
+                    autoclose: true,
+                    format: "yyyy-mm-dd"
+                });
+                $('#calendario_final .input-group.date').datepicker({
+                    todayBtn: "linked",
+                    keyboardNavigation: false,
+                    forceParse: false,
+                    calendarWeeks: true,
+                    autoclose: true,
+                    format: "yyyy-mm-dd"
+                });
+            });
+        </script>
 </body>
 
 </html>

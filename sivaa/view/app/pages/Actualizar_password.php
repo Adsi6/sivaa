@@ -4,12 +4,6 @@ error_reporting(0);
 session_start();
 require_once("../../../model/modelo_actualizar_datos.php");
 
-if ($_GET['error']) {
-	echo "<script language='JavaScript' type='text/javascript'>
-			alert('La contraseña debe ser diferente a la actual');
-		  </script>";
-}
-
 $documento = $_SESSION['cedula'];
 ?>
 <!DOCTYPE html>
@@ -22,6 +16,7 @@ $documento = $_SESSION['cedula'];
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Lista de Chequeo</title>
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="../vendor/datatables/css/datatables.min.css" rel="stylesheet">

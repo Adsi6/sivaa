@@ -27,7 +27,7 @@ if ($_POST['act_datos'] == 1) {
 
 	$act_datos = new Actualiza_datos();
 	$act_datos->act_datos($documento, $nombre, $apellido, $correo, $sexo, $direccion, $telefono);
-
+	
 	header("location:/sivaa/view/app/pages/index.php");
 }
 

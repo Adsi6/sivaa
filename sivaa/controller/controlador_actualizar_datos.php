@@ -21,8 +21,9 @@ if ($_POST['act_datos'] == 1) {
 
 	$act_datos = new Actualiza_datos();
 	$act_datos->act_datos($documento, $nombre, $apellido, $correo, $sexo, $direccion, $telefono);
-
-	header("location:/sivaa/view/app/pages/index.php");
+	echo '<script language="javascript">alert("Datos Actualizados");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/index.php" </script>';
+	//header("location:/sivaa/view/app/pages/index.php");
 }
 
 if ($_POST['act_pass'] == 1) {
@@ -30,12 +31,15 @@ if ($_POST['act_pass'] == 1) {
 	$pass = sha1($_POST['pass']);
 
 	if ($pass_actual == $pass) {
-		header("location:/sivaa/view/app/pages/Actualizar_password.php?error=1");
+		echo '<script language="javascript">alert("La contraseña debe ser diferente a la actual");</script>'; 
+    	echo '<script>document.location.href="/sivaa/view/app/pages/Actualizar_password.php" </script>';
+		//header("location:/sivaa/view/app/pages/Actualizar_password.php?error=1");
 	} else {
 		$validar = new Actualiza_datos();
 		$validar->act_password($documento, $pass);
-
-		header("location:/sivaa/view/app/pages/index.php");
+		echo '<script language="javascript">alert("Su contraseña Se ha Actualizado");</script>'; 
+    	echo '<script>document.location.href="/sivaa/view/app/pages/index.php" </script>';
+		//header("location:/sivaa/view/app/pages/index.php");
 	}
 }
 

@@ -9,10 +9,8 @@ $user = $_POST['usuario'];
 $pass = sha1($_POST['password']);
 
 if ($user == "" || $pass == "") {
-	echo "<script>
-               alert('Error al ingresar los datos');
-               window.history.go(-1);
-          </script>";
+    echo '<script language="javascript">alert("Error al ingresar los datos");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/login.php" </script>';
 } else {
 	$valores = new Consultas();
 	$valores->validar_usuario($user, $pass);

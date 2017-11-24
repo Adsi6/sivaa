@@ -3,18 +3,6 @@
 error_reporting(0);
 require_once("../../../model/modelo_administrador.php");
 
-if ($_GET['update']) {
-	echo "<script language='JavaScript' type='text/javascript'>
-			alert('Regional Actualizada');
-			</script>";
-}
-
-if ($_GET['insert']) {
-	echo "<script language='JavaScript' type='text/javascript'>
-			alert('Regional Insertada');
-			</script>";
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +14,7 @@ if ($_GET['insert']) {
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Control Regionales</title>
-
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="../vendor/datatables/css/datatables.min.css" rel="stylesheet">

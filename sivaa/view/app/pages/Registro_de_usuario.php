@@ -12,11 +12,13 @@ error_reporting(0);
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>Registro</title>
+		<title>Registro usuario</title>
+		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 		<link href="/sivaa/view/app/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="/sivaa/view/app/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 		<link href="/sivaa/view/app/dist/css/sb-admin-2.css" rel="stylesheet">
 		<link href="/sivaa/view/app/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="../vendor/css/style.css" rel="stylesheet">
 		<script language=Javascript>
 			function justNumbers(e) {
 				var keynum = window.event ? window.event.keyCode : e.which;
@@ -32,7 +34,7 @@ error_reporting(0);
 				<div class="col-md-6 col-md-offset-3">
 					<div class="login-panel panel panel-default">
 						<div class="panel-heading">
-							<h3>Registro de Usuario</h3>
+							<h2>Registro de Usuario</h2>
 						</div>
 						<div class="panel-body">
 							<form action="../../../controller/controlador_registro_usuario.php" method="POST" id="registro">
@@ -52,9 +54,9 @@ error_reporting(0);
 									<label for="valida_correo">Repita Correo</label>
 									<input type="email" class="form-control" name="valida_correo" id="valida_correo" required>
 									<br>
-									<label for="sexo">Sexo</label>
+									<label for="sexo">Seleccione Genero</label>
 									<select class="form-control" name="sexo" id="sexo" required>
-										<option value="">Seleccione Sexo</option>
+										<option value=""></option>
 										<option value="M">Masculino</option>
 										<option value="F">Femenino</option>
 									</select>
@@ -62,7 +64,7 @@ error_reporting(0);
 									<label for="direccion">Dirección</label>
 									<input type="text" class="form-control" name="direccion" id="direccion" required>
 									<br>
-									<label for="telefono">Telefono</label>
+									<label for="telefono">Teléfono</label>
 									<input class="form-control" name="telefono" id="telefono" maxlength="10" onkeypress="return justNumbers(event);" tabindex="6" required>
 									<br>
 									<label for="pass">Contraseña</label>

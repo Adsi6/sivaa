@@ -14,10 +14,9 @@ if ($_POST['valida_isert'] == 1) {
 	$insert = new Menu_instructor();
 	$insert->insert_persona_ficha($cedula, $ficha);
 
-	echo "<script>
-			alert('Se ha creado la ficha');
-			window.history.go(-1);
-		  </script>";
+
+	echo '<script language="javascript">alert("Se ha Guardado la ficha");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Menu_instructor.php" </script>';
 }
 
 if ($_POST['elimina'] == 1) {
@@ -27,16 +26,12 @@ if ($_POST['elimina'] == 1) {
 	$update = new Menu_instructor();
 	$update->update_ficha($opcion, $id_ficha);
 
-	if ($opcion == 0) {
-		echo "<script>
-				alert('Se ha Inactivado la ficha');
-				window.history.go(-1);
-			  </script>";
+	if ($opcion == 0) {;
+		echo '<script language="javascript">alert("Se ha Inactivado la ficha");</script>'; 
+    	echo '<script>document.location.href="/sivaa/view/app/pages/Menu_instructor.php" </script>';
 	} else {
-		echo "<script>
-				alert('Se realizo la activacion de la ficha');
-				window.history.go(-1);
-			  </script>";
+		echo '<script language="javascript">alert("Se realizo la activacion de la ficha");</script>'; 
+    	echo '<script>document.location.href="/sivaa/view/app/pages/Menu_instructor.php" </script>';
 	}
 }
 

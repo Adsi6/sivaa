@@ -7,11 +7,6 @@ if ($_SESSION['nombre_usuario'] == "") {
 
 ?>
 
-<!--
-Autor: John Alexander Llarave
-Desarrollador Web
--->
-
 <div class="navbar-header">
         <a class="navbar-brand" href="/sivaa/view/app/pages/index.php">Sistema Verificación Ambientes de Aprendizaje</a>
 </div>

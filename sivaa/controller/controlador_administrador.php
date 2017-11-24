@@ -14,8 +14,11 @@ if ($_POST['crear_usuario'] == 1) {
 
 	$insert_usuario = new consultas_admin();
 	$insert_usuario->insert_usuario($documento, $centro, $perfil);
+	
+	echo '<script language="javascript">alert("suario creado");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_usuarios.php" </script>';
 
-	header("location:/sivaa/view/app/pages/Admin_control_usuarios.php?insert=1");
+	//header("location:/sivaa/view/app/pages/Admin_control_usuarios.php?insert=1");
 }
 
 if ($_POST['editar_usuario'] == 1) {
@@ -26,7 +29,10 @@ if ($_POST['editar_usuario'] == 1) {
 	$act = new consultas_admin();
 	$act->act_roles($cedula, $centro, $perfil);
 
-	header("location:/sivaa/view/app/pages/Admin_control_usuarios.php?update=1");
+	echo '<script language="javascript">alert("Usuario Modificado");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_usuarios.php" </script>';
+
+	//header("location:/sivaa/view/app/pages/Admin_control_usuarios.php?update=1");
 }
 
 if ($_POST['elimina_usuario'] == 1) {
@@ -36,7 +42,10 @@ if ($_POST['elimina_usuario'] == 1) {
 	$opcion_usu = new consultas_admin();
 	$opcion_usu->opcion_usuario($documento_opcion, $opcion);
 
-	header("location:/sivaa/view/app/pages/Admin_control_usuarios.php?update=1");
+	echo '<script language="javascript">alert("Usuario Modificado");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_usuarios.php" </script>';
+
+	//header("location:/sivaa/view/app/pages/Admin_control_usuarios.php?update=1");
 }
 
 
@@ -55,10 +64,9 @@ if ($_POST['vacio_pregunta'] == 1) {
 	$insert_pregunta = new consultas_admin();
 	$insert_pregunta->insert_pregunta($pregunta);
 
-	echo "<script>
-               alert('Pregunta Insertada');
-               window.history.go(-1);
-          </script>";
+
+    echo '<script language="javascript">alert("Pregunta Insertada");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_encuesta.php" </script>';
 }
 
 if ($_POST['vacio_pregunta'] == 2) {
@@ -68,10 +76,9 @@ if ($_POST['vacio_pregunta'] == 2) {
 	$act_pregunta = new consultas_admin();
 	$act_pregunta->act_pregunta($pregunta, $id_pregunta);
 
-	echo "<script>
-               alert('Pregunta Actualizada');
-               window.history.go(-1);
-          </script>";
+
+    echo '<script language="javascript">alert("Pregunta Actualizada");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_encuesta.php" </script>';
 }
 
 if ($_POST['valida_pre'] == 1) {
@@ -81,10 +88,9 @@ if ($_POST['valida_pre'] == 1) {
 	$pregunta = new consultas_admin();
 	$pregunta->elimina_pre($id_pregunta, $opcion_pre);
 
-	echo "<script>
-               alert('Pregunta Actualizada');
-               window.history.go(-1);
-          </script>";
+
+    echo '<script language="javascript">alert("Pregunta Actualizada");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_encuesta.php" </script>';
 }
 /********************************************
 Fin Modulo Control Encuesta
@@ -117,12 +123,9 @@ if ($_POST['vacio_regional'] == 2) {
 	$act_region = new consultas_admin();
 	$act_region->act_region($id_region, $nombre_region);
 
-	echo "<script>
-	          alert('Regional Actualizada Correctamente');
 
-               window.history.go(-1);
-          </script>";
-
+	echo '<script language="javascript">alert("Regional Actualizada Correctamente");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_regional.php" </script>';
 	//header("location:/sivaa/view/app/pages/Admin_control_regional.php?update=1");
 }
 /********************************************
@@ -157,10 +160,9 @@ if ($_POST['vacio_centro'] == 2) {
 	$act_centro = new consultas_admin();
 	$act_centro->act_centro($nom_centro, $id_centro);
 
-	echo "<script>
-               alert('Centro Actualizado Correctamente');
-               window.history.go(-1);
-          </script>";
+
+    echo '<script language="javascript">alert("Centro Actualizado Correctamente");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_centro.php" </script>';
 	//header("location:/sivaa/view/app/pages/Admin_control_centro.php?insert=1");
 }
 /********************************************
@@ -182,7 +184,7 @@ if ($_POST['vacio_sede'] == 1) {
         //       window.history.go(-1);
           //</script>";
 
-          echo '<script language="javascript">alert("Nueva Sede Insertado");</script>'; 
+    echo '<script language="javascript">alert("Nueva Sede Insertado");</script>'; 
     echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_sede.php" </script>';
 
 	//header("location:/sivaa/view/app/pages/Admin_control_sede.php?insert=1");
@@ -195,10 +197,8 @@ if ($_POST['vacio_sede'] == 2) {
 	$act_sede = new consultas_admin();
 	$act_sede->act_sede($nom_sede, $id_sede);
 
-	echo "<script>
-           alert('Sede Actualizada Correctamente');
-           window.history.go(-1);
-      </script>";
+    echo '<script language="javascript">alert("Sede Actualizada Correctamente");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_sede.php" </script>';
 
 	//header("location:/sivaa/view/app/pages/Admin_control_sede.php?insert=1");
 }
@@ -234,10 +234,8 @@ if ($_POST['vacio_ambiente'] == 2) {
 	$act_ambiente = new consultas_admin();
 	$act_ambiente->act_ambiente($id_ambiente, $num_ambiente);
 
-	echo "<script>
-           alert('Ambiente Actualizado Correctamente');
-           window.history.go(-1);
-      </script>";
+    echo '<script language="javascript">alert("Ambiente Actualizado Correctamente");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_ambiente.php" </script>';
 
 	//header("location:/sivaa/view/app/pages/Admin_control_ambiente.php?insert=1");
 }
@@ -274,10 +272,9 @@ if ($_POST['vacio_programa'] == 2) {
 	$act_programa = new consultas_admin();
 	$act_programa->act_programa($id_programa, $nom_programa);
 
-    echo "<script>
-        alert(' Programa Actualizado Correctamente');
-        window.history.go(-1);
-      </script>";
+
+    echo '<script language="javascript">alert("Programa Actualizado Correctamente");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_programa.php" </script>';
 
 	//header("location:/sivaa/view/app/pages/Admin_control_programa.php?insert=1");
 }
@@ -318,11 +315,9 @@ if ($_POST['vacio_ficha'] == 2) {
 	$act_ficha = new consultas_admin();
 	$act_ficha->act_ficha($ambiente, $jornada, $programa, $num_ficha, $id_ficha);
 
-	echo "<script>
-          alert(' Ficha Actualizada Correctamente');
-          window.history.go(-1);
-         </script>";
 
+    echo '<script language="javascript">alert(" Ficha Actualizada Correctamente");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_ficha.php" </script>';
 	//header("location:/sivaa/view/app/pages/Admin_control_ficha.php?update=1");
 }
 
@@ -333,10 +328,8 @@ if ($_POST['elimina'] == 1) {
 	$ficha = new consultas_admin();
 	$ficha->elimina_ficha($id_ficha, $opcion_ficha);
 
-		echo "<script>
-          alert('Se Ha Inactivado La Ficha Seleccionada ');
-          window.history.go(-1);
-         </script>";
+    echo '<script language="javascript">alert(" Se Ha Inactivado La Ficha Seleccionada");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_ficha.php" </script>';
 
 	//header("location:/sivaa/view/app/pages/Admin_control_ficha.php?update=1");
 }
@@ -373,402 +366,6 @@ if ($_POST['cascada'] == 3) {
 /********************************************
 Fin condiciones Selects es Casacada
 *********************************************/
-
-
-
-/***************************************************************
-Cargar Masivos Usuarios
-***************************************************************************/
-
-if (substr($_FILES['usuario_masivo']['name'],-3)=="csv")	{
-	$carpeta = "../view/app/tmp_excel/";
-	$excel = $_FILES['usuario_masivo']['name'];
-
-	move_uploaded_file($_FILES['usuario_masivo']['tmp_name'], "$carpeta$excel");
-	
-	$row = 1;
-
-	$fp = fopen ("$carpeta$excel","r");
-	//fgetcsv. obtiene los valores que estan en el csv y los extrae.
-	$contador = 0;
-	$contarinsert = 0;
-	while ($data = fgetcsv ($fp, 100000, ";")) {
-		//si la linea es igual a 1 no guardamos por que serian los titulos de la hoja del excel.
-		if ($row!=1) {
-
-			$num = count($data);
-
-			$cedula = $data[0];
-			$centro = $data[1];
-			$rol = $data[2];
-
-			$sqlcedula = new consultas_admin();
-			$consulta_cedula = $sqlcedula->select_persona_cedula($cedula);
-
-			if($consulta_cedula == 0) {
-			//echo "Entro";
-				$sqlcentro = new consultas_admin();
-				$existe_centro = $sqlcentro -> select_centro_valor($centro);
-				if($existe_centro != 0) {
-					foreach ($existe_centro as $valor_id_centro) {
-						$centro_id = $valor_id_centro['id_centro'];
-					}
-					$sqlrol = new consultas_admin();
-					$existe_rol = $sqlrol -> select_rol_valor($rol);
-					if($existe_rol != 0){
-						foreach ($existe_rol as $valor_id_rol) {
-							$rol_id = $valor_id_rol['id_rol'];
-						}
-							$insert_user = new consultas_admin();
-							$insert_user->insert_usuario_masivo($cedula, $centro_id, $rol_id);
-							$contarinsert++;
-						}else{
-						$contador++;
-					}
-				}else{
-					$contador++;
-				}
-			}else{
-				$contador++;
-			}
-		}
-	$row++;
-	}
-	fclose ($fp);
-	echo "<script> alert('Se han cargado ".$contarinsert." usuarios con exito ! \\n\\n Usuarios no cargados:  ".$contador." ');</script>";
-	echo '<script>document.location.href="../../../sivaa/view/app/pages/Admin_control_usuarios.php" </script>';
-	exit;
-}
-
-
-/***************************************************************
-Cargar Masivos Regional
-***************************************************************************/
-
-if (substr($_FILES['regional_masivo']['name'],-3)=="csv")	{
-	$carpeta = "../view/app/tmp_excel/";
-	$excel = $_FILES['regional_masivo']['name'];
-
-	move_uploaded_file($_FILES['regional_masivo']['tmp_name'], "$carpeta$excel");
-	
-	$row = 1;
-
-	$fp = fopen ("$carpeta$excel","r");
-	//fgetcsv. obtiene los valores que estan en el csv y los extrae.
-	$contador = 0;
-	$contarinsert = 0;
-	while ($data = fgetcsv ($fp, 100000, ";")) {
-		//si la linea es igual a 1 no guardamos por que serian los titulos de la hoja del excel.
-		if ($row!=1) {
-
-			$num = count($data);
-
-			$cod_regional = $data[0];
-			$nom_regional = $data[1];
-
-			$sqlcedula = new consultas_admin();
-			$consulta_regional = $sqlcedula->select_regional_cod($cod_regional);
-
-			if($consulta_regional == 0) {
-			//echo "Entro";
-				$insert_user = new consultas_admin();
-				$insert_user->insert_regional($cod_regional, $nom_regional);
-				$contarinsert++;
-			}else{
-				$contador++;
-			}
-		}
-	$row++;
-	}
-	fclose ($fp);
-	echo "<script> alert('Se han cargado ".$contarinsert." Regionales con exito ! \\n\\n Regionales no cargados:  ".$contador." ');</script>";
-	echo '<script>document.location.href="../../../sivaa/view/app/pages/Admin_control_regional.php" </script>';
-	exit;
-}
-
-
-/***************************************************************
-Cargar Masivos centros
-***************************************************************************/
-
-if (substr($_FILES['centros_masivo']['name'],-3)=="csv")	{
-	$carpeta = "../view/app/tmp_excel/";
-	$excel = $_FILES['centros_masivo']['name'];
-
-	move_uploaded_file($_FILES['centros_masivo']['tmp_name'], "$carpeta$excel");
-	
-	$row = 1;
-
-	$fp = fopen ("$carpeta$excel","r");
-	//fgetcsv. obtiene los valores que estan en el csv y los extrae.
-	$contador = 0;
-	$contarinsert = 0;
-	while ($data = fgetcsv ($fp, 100000, ";")) {
-		//si la linea es igual a 1 no guardamos por que serian los titulos de la hoja del excel.
-		if ($row!=1) {
-
-			$num = count($data);
-
-			$cod_centro = $data[0];
-			$nom_centro = $data[1];
-			$cod_regional = $data[2];
-
-			$sqlcentro = new consultas_admin();
-			$consulta_centro = $sqlcentro->select_centro_cod($cod_centro);
-
-			if($consulta_centro == 0) {
-					//echo "Entro1";
-			
-				$sqlregional = new consultas_admin();
-				$ver_regional = $sqlregional -> select_regional_cod($cod_regional);
-					
-				if($ver_regional != 0) {
-					//echo "Entro2";
-
-					foreach ($ver_regional as $valor_id_regional) {
-					$regional_id = $valor_id_regional['id_regional'];
-					}
-					//echo $regional_id;
-
-						$insert_user = new consultas_admin();
-						$insert_user->insert_centro($cod_centro, $nom_centro, $regional_id);
-						$contarinsert++;
-				}else{
-					$contador++;
-				}
-			}else{
-				$contador++;
-			}
-		}
-	$row++;
-	}
-	fclose ($fp);
-	echo "<script> alert('Se han cargado ".$contarinsert." Centros con exito ! \\n\\n Centros no cargados:  ".$contador." ');</script>";
-	echo '<script>document.location.href="../../../sivaa/view/app/pages/Admin_control_centro.php" </script>';
-	exit;
-}
-
-
-/***************************************************************
-Cargar Masivos Sede
-***************************************************************************/
-
-if (substr($_FILES['sede_masivo']['name'],-3)=="csv")	{
-	$carpeta = "../view/app/tmp_excel/";
-	$excel = $_FILES['sede_masivo']['name'];
-
-	move_uploaded_file($_FILES['sede_masivo']['tmp_name'], "$carpeta$excel");
-	
-	$row = 1;
-
-	$fp = fopen ("$carpeta$excel","r");
-	//fgetcsv. obtiene los valores que estan en el csv y los extrae.
-	$contador = 0;
-	$contarinsert = 0;
-	while ($data = fgetcsv ($fp, 100000, ";")) {
-		//si la linea es igual a 1 no guardamos por que serian los titulos de la hoja del excel.
-		if ($row!=1) {
-
-			$num = count($data);
-
-			$cod_centro = $data[0];
-			$nom_sede = $data[1];
-
-			$sqlcentro = new consultas_admin();
-			$consulta_centro = $sqlcentro->select_centro_cod($cod_centro);
-
-			if($consulta_centro != 0) {
-					//echo "Entro1";
-				foreach ($consulta_centro as $ver_centro) {
-					$centro_id = $ver_centro['id_centro'];
-					
-				}
-				$sqlsede = new consultas_admin();
-				$ver_sede = $sqlsede -> select_sede_valor($nom_sede,$centro_id);
-					
-				if($ver_sede == 0) {
-					//echo "Entro1";
-
-						$insert_user = new consultas_admin();
-						$insert_user->insert_sede_masivo($centro_id, $nom_sede);
-						$contarinsert++;
-				}else{
-					$contador++;
-				}
-			}else{
-				$contador++;
-			}
-		}
-	$row++;
-	}
-	fclose ($fp);
-	echo "<script> alert('Se han cargado ".$contarinsert." Centros con exito ! \\n\\n Centros no cargados:  ".$contador." ');</script>";
-	echo '<script>document.location.href="../../../sivaa/view/app/pages/Admin_control_sede.php" </script>';
-	exit;
-}
-
-/***************************************************************
-Cargar Masivos Ambiente
-***************************************************************************/
-
-if (substr($_FILES['ambiente_masivo']['name'],-3)=="csv")	{
-	$carpeta = "../view/app/tmp_excel/";
-	$excel = $_FILES['ambiente_masivo']['name'];
-
-	move_uploaded_file($_FILES['ambiente_masivo']['tmp_name'], "$carpeta$excel");
-	
-	$row = 1;
-
-	$fp = fopen ("$carpeta$excel","r");
-	//fgetcsv. obtiene los valores que estan en el csv y los extrae.
-	$contador = 0;
-	$contarinsert = 0;
-	while ($data = fgetcsv ($fp, 100000, ";")) {
-		//si la linea es igual a 1 no guardamos por que serian los titulos de la hoja del excel.
-		if ($row!=1) {
-
-			$num = count($data);
-
-			$num_ambiente = $data[0];
-			$nom_sede = $data[1];
-
-			$sqlsede = new consultas_admin();
-			$consulta_sede = $sqlsede->select_sede_ver($nom_sede);
-
-			if($consulta_sede != 0) {
-				//echo "Entro1";
-				foreach ($consulta_sede as $ver_sede) {
-					 $sede_id = $ver_sede['id_sede'];		
-				}
-				$sqlambiente = new consultas_admin();
-				$consulta_ambiente = $sqlambiente -> select_ambiente_valor($num_ambiente,$sede_id);
-					
-				if($consulta_ambiente == 0) {
-					//echo "Entro2";
-
-						$insert_user = new consultas_admin();
-						$insert_user->insert_ambiente_masivo($num_ambiente,$sede_id);
-						$contarinsert++;
-				}else{
-					$contador++;
-					//echo "no";
-				}
-			}else{
-				$contador++;
-			}
-		}
-	$row++;
-	}
-	fclose ($fp);
-	echo "<script> alert('Se han cargado ".$contarinsert." Centros con exito ! \\n\\n Centros no cargados:  ".$contador." ');</script>";
-	echo '<script>document.location.href="../../../sivaa/view/app/pages/Admin_control_ambiente.php" </script>';
-	exit;
-}
-
-/***************************************************************
-Cargar Masivos Programa
-***************************************************************************/
-
-if (substr($_FILES['programa_masivo']['name'],-3)=="csv")	{
-	$carpeta = "../view/app/tmp_excel/";
-	$excel = $_FILES['programa_masivo']['name'];
-
-	move_uploaded_file($_FILES['programa_masivo']['tmp_name'], "$carpeta$excel");
-	
-	$row = 1;
-
-	$fp = fopen ("$carpeta$excel","r");
-	//fgetcsv. obtiene los valores que estan en el csv y los extrae.
-	$contador = 0;
-	$contarinsert = 0;
-	while ($data = fgetcsv ($fp, 100000, ";")) {
-		//si la linea es igual a 1 no guardamos por que serian los titulos de la hoja del excel.
-		if ($row!=1) {
-
-			$num = count($data);
-
-			$cod_regional = $data[0];
-			$nom_regional = $data[1];
-
-			$sqlcedula = new consultas_admin();
-			$consulta_regional = $sqlcedula->select_regional_cod($cod_regional);
-
-			if($consulta_regional == 0) {
-			//echo "Entro";
-				$insert_user = new consultas_admin();
-				$insert_user->insert_regional($cod_regional, $nom_regional);
-				$contarinsert++;
-			}else{
-				$contador++;
-			}
-		}
-	$row++;
-	}
-	fclose ($fp);
-	echo "<script> alert('Se han cargado ".$contarinsert." Regionales con exito ! \\n\\n Regionales no cargados:  ".$contador." ');</script>";
-	echo '<script>document.location.href="../../../sivaa/view/app/pages/Admin_control_programa.php" </script>';
-	exit;
-}
-
-/***************************************************************
-Cargar Masivos ficha
-***************************************************************************/
-
-if (substr($_FILES['ficha_masivo']['name'],-3)=="csv")	{
-	$carpeta = "../view/app/tmp_excel/";
-	$excel = $_FILES['ficha_masivo']['name'];
-
-	move_uploaded_file($_FILES['ficha_masivo']['tmp_name'], "$carpeta$excel");
-	
-	$row = 1;
-
-	$fp = fopen ("$carpeta$excel","r");
-	//fgetcsv. obtiene los valores que estan en el csv y los extrae.
-	$contador = 0;
-	$contarinsert = 0;
-	while ($data = fgetcsv ($fp, 100000, ";")) {
-		//si la linea es igual a 1 no guardamos por que serian los titulos de la hoja del excel.
-		if ($row!=1) {
-
-			$num = count($data);
-
-			$ficha = $data[0];
-			$sede = $data[1];
-			$ambiente = $data[2];
-			$jornada = $data[3];
-			$programa = $data[4];
-
-			$sqlficha = new consultas_admin();
-			$consulta_ficha = $sqlficha->select_ficha_ver($ficha);
-
-			if($consulta_ficha == 0) {
-				//echo "Entro1";
-
-				$sqlambiente = new consultas_admin();
-				$consulta_ambiente = $sqlambiente -> select_ambiente_valor($num_ambiente,$sede_id);
-					
-				if($consulta_ambiente == 0) {
-					//echo "Entro2";
-
-						$insert_user = new consultas_admin();
-						$insert_user->insert_ambiente_masivo($num_ambiente,$sede_id);
-						$contarinsert++;
-				}else{
-					$contador++;
-					//echo "no";
-				}
-			}else{
-				$contador++;
-			}
-		}
-	$row++;
-	}
-	fclose ($fp);
-	echo "<script> alert('Se han cargado ".$contarinsert." Centros con exito ! \\n\\n Centros no cargados:  ".$contador." ');</script>";
-	echo '<script>document.location.href="../../../sivaa/view/app/pages/Admin_control_ambiente.php" </script>';
-	exit;
-}
-
 
 
 	/*****************************************************************

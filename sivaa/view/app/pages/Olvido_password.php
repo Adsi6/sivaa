@@ -24,6 +24,7 @@ $token = $_GET['token'];
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title>Restaurar contraseña</title>
+		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 		<link href="/sivaa/view/app/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="/sivaa/view/app/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 		<link href="/sivaa/view/app/dist/css/sb-admin-2.css" rel="stylesheet">

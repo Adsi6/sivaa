@@ -12,26 +12,29 @@ error_reporting(0);
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title>Login</title>
+		<link rel="icon" href="view/app/img/favicon.ico" type="image/x-icon">
 		<link href="view/app/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="view/app/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 		<link href="view/app/dist/css/sb-admin-2.css" rel="stylesheet">
 		<link href="view/app/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="view/app/vendor/css/style.css" rel="stylesheet">
 		<script language=Javascript>
-		function justNumbers(e) {
-			var keynum = window.event ? window.event.keyCode : e.which;
-			if ((keynum == 8) || (keynum == 46))
-				return true;
-				return /\d/.test(String.fromCharCode(keynum));
-		}
-   </script>
+			function justNumbers(e) {
+				var keynum = window.event ? window.event.keyCode : e.which;
+				if ((keynum == 8) || (keynum == 46))
+					return true;
+					return /\d/.test(String.fromCharCode(keynum));
+			}
+    	</script>
 	</head>
+
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
 					<div class="login-panel panel panel-default">
 						<div class="panel-heading">
-							<h3>Inicio se sesión</h3>
+							<h2>Inicio se sesión</h2>
 						</div>
 						<div class="panel-body">
 							<form action="controller/controlador_sesiones.php" method="POST" id="login">
@@ -50,56 +53,57 @@ error_reporting(0);
 								</fieldset>
 							</form>
 
-						  <!-- Modal Olvido contraseña-->
-						  <div class="modal fade" id="olvido_pass" role="dialog">
+							<!-- Modal Olvido contraseña-->
+							<div class="modal fade" id="olvido_pass" role="dialog">
 								<div class="modal-dialog modal-sm">
-								  <div class="modal-content">
-                    <div class="panel-body">
-                      <div class="row">
-                        <div class="col-lg-12"><br>
-                          <form action="controller/controlador_olvido_password.php" method="POST" >
-                            <div class="form-group">
-                              <label >Ingrese Correo Registrado</label>
-                              <input class="form-control" name="correo" id="correo" required >
-                            </div>
-                            <input type="hidden" name="recuperar" value="1">
-                            <input type="submit" class="btn btn-success" value="recuperar" >
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+									<div class="modal-content">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-lg-12"><br>
+													<form action="controller/controlador_olvido_password.php" method="POST" >
+														<div class="form-group">
+															<label >Ingrese Correo Registrado</label>
+															<input class="form-control" name="correo" id="correo" required >
+														</div>
+														<input type="hidden" name="recuperar" value="1">
+														<input type="submit" class="btn btn-success" value="recuperar" >
+														<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-						  </div>
+							</div>
 
-						   <!-- Modal Registrarse-->
-						  <div class="modal fade" id="registro" role="dialog">
+							<!-- Modal Registrarse-->
+							<div class="modal fade" id="registro" role="dialog">
 								<div class="modal-dialog modal-sm">
-								  <div class="modal-content">
-                    <div class="panel-body">
-                      <div class="row">
-                        <div class="col-lg-12"><br>
-                          <form action="controller/controlador_registro_usuario.php" method="POST" id="login_2">
-                            <div class="form-group">
-                              <label for="documento">Numero de Documento</label>
-                              <input class="form-control" name="documento" id="documento" maxlength="10" onkeypress="return justNumbers(event);" required>
-                              <input type="hidden" name="valida_documento" value="1">
-                            </div>
-                            <input type="submit" class="btn btn-success" value="Consultar" name="btn_regional">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+									<div class="modal-content">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-lg-12"><br>
+													<form action="controller/controlador_registro_usuario.php" method="POST" id="login_2">
+														<div class="form-group">
+															<label for="documento">Numero de Documento</label>
+															<input class="form-control" name="documento" id="documento" maxlength="10" onkeypress="return justNumbers(event);" required>
+															<input type="hidden" name="valida_documento" value="1">
+														</div>
+														<input type="submit" class="btn btn-success" value="Consultar" name="btn_regional">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-						  </div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<script src="view/app/vendor/jquery/jquery.min.js"></script>
 		<script src="view/app/vendor/bootstrap/js/bootstrap.min.js"></script>
 		<script src="view/app/vendor/metisMenu/metisMenu.min.js"></script>

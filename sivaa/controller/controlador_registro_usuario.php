@@ -23,7 +23,7 @@ if ($_POST['valida_documento'] == 1) {
 		$result_documento_2 = $valida_documento_2->select_documento_registrado($documento);
 
 		if ($result_documento_2 == 0) {
-			header("location:/sivaa/view/app/pages/Reguistro_de_usuario.php"); //Lo envia al formulario para registrarce
+			header("location:/sivaa/view/app/pages/Registro_de_usuario.php"); //Lo envia al formulario para registrarce
 		} else {
 			echo '<script language="javascript">alert("El documento '.$cedula.'. Ya cuenta con un suario registrado");</script>'; 
             echo '<script>document.location.href="../index.php" </script>';
@@ -57,14 +57,13 @@ if ($_POST['ingresar_usuario'] == 1) {
 	$Actualizar_token = $updatetoken->update_token($code,$cedula);
 
     $mensaje = "
-       Buen dia, $nombre
+       Buen día, $nombre $apellido
        <br /><br />
-       Este es un mensaje para activar el usuario de la aplicacion Sivaa (Sistema de verificacion de ambientes de aprendizaje), haga clic en el siguiente enlace para confirmar la activacion del usuario, si no solo ignore este correo electrónico,
+       Bienvenido al Sistema de Información SIVAA, (Sistema de verificación de ambientes de aprendizaje), haga clic en el siguiente enlace para activar su usuario.
        <br /><br />
-      <a href='http://localhost:8080/sivaa/view/app/pages/usuario_activo.php?cedula=$cedula&token=$code'>Haga clic aquí para activar su usuario</a>
+      <a href='http://localhost:8080/sivaa/view/app/pages/usuario_activo.php?cedula=$cedula&token=$code'>Haga clic aquí para activar su usuario.</a>
 
        <br /><br />
-       Gracias 
        ";
 
     $asunto = "Activar Usuario";
@@ -95,7 +94,7 @@ if ($_POST['ingresar_usuario'] == 1) {
 	    echo '<script>document.location.href="../index.php" </script>';
 	  exit;
 	  } else {
-	    echo '<script language="javascript">alert("Se envio un mensaje al correo: '.$correo.' para realizar la activacion del usuario ");</script>'; 
+	    echo '<script language="javascript">alert("Se a enviado un mensaje al correo: '.$correo.' para realizar la activación del usuario. \\nSi no lo encuntra en bandeja de entrada, revice la bandeja spam");</script>'; 
 	    echo '<script>document.location.href="../index.php" </script>';
 	  }       
    }

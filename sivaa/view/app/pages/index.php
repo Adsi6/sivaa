@@ -12,6 +12,7 @@ session_start();
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Inicio <?php echo $_SESSION['nombre_rol'];?></title>
+        <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
         <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
         <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
         <link href="../vendor/css/style.css" rel="stylesheet">
@@ -31,7 +32,20 @@ session_start();
                     </div>
                 </div>
             </nav>
-            <div id="page-wrapper"></div>
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1> SERVICIO NACIONAL DE APRENDIZAJE SENA</h1>
+                        <h3> Procedimiento Ejecución de la Formación Profesional Integral </h3>
+                        <h4> LISTA DE CHEQUEO AMBIENTE DE APRENDIZAJE</h4>
+                        <h5> SIVAA</h5>
+                        <div class="page-header" ></div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <h1 >Bienvenido <?php echo utf8_encode($_SESSION['nombre_usuario'] . " " . $_SESSION['apellido_usuario']); ?></h1>
+                </div>
+            </div>
         </div>
 
         <script src="../vendor/jquery/jquery.min.js"></script>

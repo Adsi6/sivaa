@@ -30,10 +30,12 @@ $token = $_GET['token'];
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title>usuario activo</title>
+		<link rel="icon" href="/sivaa/view/app/img/favicon.ico" type="image/x-icon">
 		<link href="/sivaa/view/app/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="/sivaa/view/app/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 		<link href="/sivaa/view/app/dist/css/sb-admin-2.css" rel="stylesheet">
 		<link href="/sivaa/view/app/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="/sivaa/view/app/vendor/css/style.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="container">

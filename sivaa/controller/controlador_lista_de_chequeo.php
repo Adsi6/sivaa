@@ -26,8 +26,11 @@ for ($i=1; $i < $ciclo; $i++) {
 		$pre = new Consultas_chequeo();
 		$pre->insert_respuesta($respuesta, $observacion, $id_pregunta, $id_regional, $id_centro, $id_sede, $id_ambiente, $id_ficha, $cedula);
 	}
+	
+	echo '<script language="javascript">alert("Datos guardados con Exito!");</script>'; 
+    echo '<script>document.location.href="/sivaa/view/app/pages/Lista_de_chequeo.php" </script>';
 
-	header("location:/sivaa/view/app/pages/Lista_de_chequeo.php");
+	//header("location:/sivaa/view/app/pages/Lista_de_chequeo.php");
 }
 
 /********************************************
