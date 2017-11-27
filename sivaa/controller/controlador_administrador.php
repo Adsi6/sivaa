@@ -26,8 +26,10 @@ if ($_POST['editar_usuario'] == 1) {
 	$centro = $_POST['centro'];
 	$perfil = $_POST['perfil'];
 
-	$act = new consultas_admin();
-	$act->act_roles($cedula, $centro, $perfil);
+	if ($centro != NULL || $perfil != NULL) {
+		$act = new consultas_admin();
+		$act->act_roles($cedula, $centro, $perfil);
+	}
 
 	echo '<script language="javascript">alert("Usuario Modificado");</script>'; 
     echo '<script>document.location.href="/sivaa/view/app/pages/Admin_control_usuarios.php" </script>';

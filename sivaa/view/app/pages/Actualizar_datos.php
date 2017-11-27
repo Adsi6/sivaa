@@ -108,7 +108,7 @@ $documento = $_SESSION['cedula'];
 											<label for="correo">Correo</label>
 											<input class="form-control" type="email" name="correo" id="correo" value="<?php echo $correo ?>" required>
 											<br>
-											<label for="sexo">Sexo</label>
+											<label for="sexo">Seleccione Genero</label>
 											<select class="form-control" name="sexo" id="sexo" required>
 												<option value="<?php echo $sexo_1 ?>"><?php echo $valor_sexo_1 ?></option>
 												<option value="<?php echo $sexo_2 ?>"><?php echo $valor_sexo_2 ?></option>
@@ -117,7 +117,7 @@ $documento = $_SESSION['cedula'];
 											<label for="direccion">Dirección</label>
 											<input class="form-control" name="direccion" id="direccion" value="<?php echo $direccion ?>" required>
 											<br>
-											<label for="telefono">Telefono</label>
+											<label for="telefono">Teléfono</label>
 											<input class="form-control" name="telefono" id="telefono" maxlength="10" onkeypress="return justNumbers(event);" value="<?php echo $telefono ?>" required>
 										</div>
 										<input type="hidden" name="act_datos" value="1">

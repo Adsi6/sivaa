@@ -2,7 +2,7 @@
 //echo "<br>" . $_SERVER['PHP_SELF'];
 session_start();
 if ($_SESSION['nombre_rol'] != "Administrador") {
-    header("location:/sivaa/index.php");
+	header("location:/sivaa/index.php");
 }
 
 error_reporting(0);
@@ -175,28 +175,27 @@ require_once("../../../model/modelo_administrador.php");
 												<div class="col-lg-12">
 													<script type="text/javascript">
 														function cargarHojaExcel(){
-												            if(document.frmcargararchivo.usuario_masivo.value==""){
-												              alert("Debe seleccionar un archivo");
-												              document.frmcargararchivo.usuario_masivo.focus();
-												              return false;
-												            }   
-												            document.frmcargararchivo.action = "../../../controller/controlador_cargue_masivo.php";
-												            document.frmcargararchivo.submit();
-												          }
+															if(document.frmcargararchivo.usuario_masivo.value==""){
+															  alert("Debe seleccionar un archivo");
+															  document.frmcargararchivo.usuario_masivo.focus();
+															  return false;
+															}   
+															document.frmcargararchivo.action = "../../../controller/controlador_cargue_masivo.php";
+															document.frmcargararchivo.submit();
+														  }
 													</script>
 													<!-- Modal content-->
-												        <div class="modal-header">
-												          <button type="button" class="close" data-dismiss="modal">&times;</button>
-												          <h4 class="modal-title">Subir archivos con Usuario.</h4>
-												        </div>
-												          <div class="modal-body">
-												            <form name="frmcargararchivo" method="post" enctype="multipart/form-data">
-												              <p>Seleccione el archivo (.csv) para Subir (Cedula,Codigo_centro,Rol) </p>
-												              <p><input type="file" name="usuario_masivo" id="usuario_masivo" /></p>
-												              <button type="submit"  class="btn btn-success"  onclick="cargarHojaExcel();" >subir</button>
-												              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-												            </form>
-												          </div>
+														<div class="modal-header">
+														  <h4 class="modal-title">Subir archivos con Usuario.</h4>
+														</div>
+														  <div class="modal-body">
+															<form name="frmcargararchivo" method="post" enctype="multipart/form-data">
+															  <p>Seleccione el archivo (.csv) para Subir (Cedula,Codigo_centro,Rol) </p>
+															  <p><input type="file" name="usuario_masivo" id="usuario_masivo" /></p>
+															  <button type="submit"  class="btn btn-success"  onclick="cargarHojaExcel();" >subir</button>
+															  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+															</form>
+														  </div>
 												</div>                                
 											</div>
 										</div>
@@ -230,22 +229,22 @@ require_once("../../../model/modelo_administrador.php");
 
 									<div id="mostrar_1">
 										<div class="wrapper wrapper-content animated fadeInRight">
-									        <div class="row">
-									            <div class="col-lg-12">
-									                <div class="ibox float-e-margins">
-									                    <div class="ibox-content">
-									                        <div class="table-responsive">
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="ibox float-e-margins">
+														<div class="ibox-content">
+															<div class="table-responsive">
 																<table width="100%" class="table table-striped table-bordered table-hover" id="tabla_activos" style="text-align: center;">
-																 	<!--<table width="100%" class="table table-striped table-bordered table-hover dataTables-example" id="tabla_activos" style="text-align: center;">-->
+																	<!--<table width="100%" class="table table-striped table-bordered table-hover dataTables-example" id="tabla_activos" style="text-align: center;">-->
 																	<thead>
 																		<tr>
 																			<th>Documento</th>
 																			<th>Nombre</th>
 																			<th>Apellido</th>
 																			<th>Correo</th>
-																			<th>Sexo</th>
-																			<th>Direccion</th>
-																			<th>Telefono</th>
+																			<th>Genero</th>
+																			<th>Dirección</th>
+																			<th>Teléfono</th>
 																			<th>Centro</th>
 																			<th>Perfil</th>
 																			<th>Editar</th>
@@ -317,7 +316,7 @@ require_once("../../../model/modelo_administrador.php");
 																															$region_activo = $region_act->select_regional(1);
 
 																															foreach ($region_activo as $region) {
-																																echo "<option value='" . $region['id_regional'] . "'>" . $region['nombre_regional'] . "</option>";
+																																echo "<option value='" . $region['id_regional'] . "'>" . utf8_encode($region['nombre_regional']) . "</option>";
 																															}
 																														?>
 																													</select>
@@ -386,11 +385,11 @@ require_once("../../../model/modelo_administrador.php");
 									</div>
 									<div id="mostrar_2" style="display: none;">
 										<div class="wrapper wrapper-content animated fadeInRight">
-									        <div class="row">
-									            <div class="col-lg-12">
-									                <div class="ibox float-e-margins">
-									                    <div class="ibox-content">
-									                        <div class="table-responsive">
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="ibox float-e-margins">
+														<div class="ibox-content">
+															<div class="table-responsive">
 																<table width="100%" class="table table-striped table-bordered table-hover" id="tabla_inactivos" style="text-align: center;">
 																	<thead>
 																		<tr>
@@ -398,9 +397,9 @@ require_once("../../../model/modelo_administrador.php");
 																			<th>Nombre</th>
 																			<th>Apellido</th>
 																			<th>Correo</th>
-																			<th>Sexo</th>
-																			<th>Direccion</th>
-																			<th>Telefono</th>
+																			<th>Genero</th>
+																			<th>Dirección</th>
+																			<th>Teléfono</th>
 																			<th>Centro</th>
 																			<th>Perfil</th>
 																			<th>Activar</th>
@@ -467,11 +466,11 @@ require_once("../../../model/modelo_administrador.php");
 
 									<div id="mostrar_3" style="display: none;">
 										<div class="wrapper wrapper-content animated fadeInRight">
-									        <div class="row">
-									            <div class="col-lg-12">
-									                <div class="ibox float-e-margins">
-									                    <div class="ibox-content">
-									                        <div class="table-responsive">
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="ibox float-e-margins">
+														<div class="ibox-content">
+															<div class="table-responsive">
 																<table width="100%" class="table table-striped table-bordered table-hover" id="tabla_pendientes" style="text-align: center;">
 																	<thead>
 																		<tr>
@@ -485,7 +484,7 @@ require_once("../../../model/modelo_administrador.php");
 																	<tbody>
 																		<?php
 																			$usuarios_act = new consultas_admin();
-																			$usuarios_activos = $usuarios_act->usuarios_pendientes(0);
+																			$usuarios_activos = $usuarios_act->usuarios_pendientes(1);
 
 																			$valores_activos['id_regional'];
 																			$valores_activos['nombre_regional'];
@@ -619,46 +618,6 @@ require_once("../../../model/modelo_administrador.php");
 					}
 				},
 			});
-
-			$("#edita_user").validate({
-				rules: {
-					documento: {
-						required: true
-					},
-
-					regional: {
-						required: true
-					},
-
-					centro: {
-						required: true
-					},
-
-					perfil: {
-						required: true
-					}
-				},
-			});
-
-			$("#edita").validate({
-				rules: {
-					documento: {
-						required: true
-					},
-
-					regional: {
-						required: true
-					},
-
-					centro: {
-						required: true
-					},
-
-					perfil: {
-						required: true
-					}
-				},
-			});
 		});
 	</script>
 
@@ -666,88 +625,88 @@ require_once("../../../model/modelo_administrador.php");
 	$(document).ready(function() {
 
 		$('#tabla_activos').DataTable({
-            pageLength: 10,
-            responsive: true,
-            dom: '<"html5buttons"B>lTfgitp',
-            buttons: [
-                { extend: 'copy'},
-                {extend: 'csv'},
-                {extend: 'excel', title: 'ExampleFile'},
-                {extend: 'pdf', title: 'ExampleFile'},
+			pageLength: 10,
+			responsive: true,
+			dom: '<"html5buttons"B>lTfgitp',
+			buttons: [
+				{ extend: 'copy'},
+				{extend: 'csv'},
+				{extend: 'excel', title: 'ExampleFile'},
+				{extend: 'pdf', title: 'ExampleFile'},
 
-                {extend: 'print',
-                 customize: function (win){
-                        $(win.document.body).addClass('white-bg');
-                        $(win.document.body).css('font-size', '10px');
+				{extend: 'print',
+				 customize: function (win){
+						$(win.document.body).addClass('white-bg');
+						$(win.document.body).css('font-size', '10px');
 
-                        $(win.document.body).find('table')
-                                .addClass('compact')
-                                .css('font-size', 'inherit');
-                }
-                }
-            ],
+						$(win.document.body).find('table')
+								.addClass('compact')
+								.css('font-size', 'inherit');
+				}
+				}
+			],
 
-            "language": {
+			"language": {
 				"url": "../js/Spanish.json"
 			}
 
-        });
+		});
 
-        $('#tabla_inactivos').DataTable({
-            pageLength: 10,
-            responsive: true,
-            dom: '<"html5buttons"B>lTfgitp',
-            buttons: [
-                { extend: 'copy'},
-                {extend: 'csv'},
-                {extend: 'excel', title: 'ExampleFile'},
-                {extend: 'pdf', title: 'ExampleFile'},
+		$('#tabla_inactivos').DataTable({
+			pageLength: 10,
+			responsive: true,
+			dom: '<"html5buttons"B>lTfgitp',
+			buttons: [
+				{ extend: 'copy'},
+				{extend: 'csv'},
+				{extend: 'excel', title: 'ExampleFile'},
+				{extend: 'pdf', title: 'ExampleFile'},
 
-                {extend: 'print',
-                 customize: function (win){
-                        $(win.document.body).addClass('white-bg');
-                        $(win.document.body).css('font-size', '10px');
+				{extend: 'print',
+				 customize: function (win){
+						$(win.document.body).addClass('white-bg');
+						$(win.document.body).css('font-size', '10px');
 
-                        $(win.document.body).find('table')
-                                .addClass('compact')
-                                .css('font-size', 'inherit');
-                }
-                }
-            ],
+						$(win.document.body).find('table')
+								.addClass('compact')
+								.css('font-size', 'inherit');
+				}
+				}
+			],
 
-            "language": {
+			"language": {
 				"url": "../js/Spanish.json"
 			}
 
-        });
+		});
 
-        $('#tabla_pendientes').DataTable({
-            pageLength: 10,
-            responsive: true,
-            dom: '<"html5buttons"B>lTfgitp',
-            buttons: [
-                { extend: 'copy'},
-                {extend: 'csv'},
-                {extend: 'excel', title: 'ExampleFile'},
-                {extend: 'pdf', title: 'ExampleFile'},
+		$('#tabla_pendientes').DataTable({
+			pageLength: 10,
+			responsive: true,
+			dom: '<"html5buttons"B>lTfgitp',
+			buttons: [
+				{ extend: 'copy'},
+				{extend: 'csv'},
+				{extend: 'excel', title: 'ExampleFile'},
+				{extend: 'pdf', title: 'ExampleFile'},
 
-                {extend: 'print',
-                 customize: function (win){
-                        $(win.document.body).addClass('white-bg');
-                        $(win.document.body).css('font-size', '10px');
+				{extend: 'print',
+				 customize: function (win){
+						$(win.document.body).addClass('white-bg');
+						$(win.document.body).css('font-size', '10px');
 
-                        $(win.document.body).find('table')
-                                .addClass('compact')
-                                .css('font-size', 'inherit');
-                }
-                }
-            ],
+						$(win.document.body).find('table')
+								.addClass('compact')
+								.css('font-size', 'inherit');
+				}
+				}
+			],
 
-            "language": {
+			"language": {
 				"url": "../js/Spanish.json"
 			}
 
-        });
+		});
 
 	});
 	</script>

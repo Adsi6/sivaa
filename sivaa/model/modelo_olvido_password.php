@@ -25,7 +25,7 @@ class olvido_password {
 	}
 
 	public function select_correo($correo) { //funcion para buscar el correo del usuario
-		$documento = mysqli_real_escape_string($this->conexion, $correo);
+		$correo = mysqli_real_escape_string($this->conexion, $correo);
 
 		$consulta_datos ="SELECT * FROM persona WHERE correo = '" . $correo . "' LIMIT 1 ";
 
@@ -41,9 +41,9 @@ class olvido_password {
 		return $this->resultado;
 	}
 
-	public function update_token($code,$cedula) { //Actualizar token
-		$documento = mysqli_real_escape_string($this->conexion, $code);
-		$documento = mysqli_real_escape_string($this->conexion, $cedula);
+	public function update_token($code, $cedula) { //Actualizar token
+		$code = mysqli_real_escape_string($this->conexion, $code);
+		$cedula = mysqli_real_escape_string($this->conexion, $cedula);
 
 		$actualizar_datos ="UPDATE persona SET token='".$code."' WHERE cedula = '".$cedula ."' ";
 
@@ -51,9 +51,9 @@ class olvido_password {
 
 	}
 
-	public function recuperacion_correo($cedula,$token) { 
-		$documento = mysqli_real_escape_string($this->conexion, $cedula);
-		$documento = mysqli_real_escape_string($this->conexion, $token);
+	public function recuperacion_correo($cedula, $token) { 
+		$cedula = mysqli_real_escape_string($this->conexion, $cedula);
+		$token = mysqli_real_escape_string($this->conexion, $token);
 
 		$consulta_token ="SELECT * FROM persona WHERE cedula = '" .$cedula."' AND token = '".$token."' ";
 
@@ -69,10 +69,10 @@ class olvido_password {
 		return $this->resultado;
 	}
 
-	public function actualizar_pass($cedula,$pass,$coden) { //Actualizar contraseña
-		$documento = mysqli_real_escape_string($this->conexion, $cedula);
-		$documento = mysqli_real_escape_string($this->conexion, $pass);
-		$documento = mysqli_real_escape_string($this->conexion, $coden);
+	public function actualizar_pass($cedula, $pass, $coden) { //Actualizar contraseña
+		$cedula = mysqli_real_escape_string($this->conexion, $cedula);
+		$pass = mysqli_real_escape_string($this->conexion, $pass);
+		$coden = mysqli_real_escape_string($this->conexion, $coden);
 
 		$actualizar_datos ="UPDATE persona SET pass = '".$pass ."' , token = '".$coden ."' WHERE cedula= '" .$cedula."' ";
 

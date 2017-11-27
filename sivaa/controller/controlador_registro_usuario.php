@@ -25,12 +25,12 @@ if ($_POST['valida_documento'] == 1) {
 		if ($result_documento_2 == 0) {
 			header("location:/sivaa/view/app/pages/Registro_de_usuario.php"); //Lo envia al formulario para registrarce
 		} else {
-			echo '<script language="javascript">alert("El documento '.$cedula.'. Ya cuenta con un suario registrado");</script>'; 
+			echo '<script language="javascript">alert("El número de documento '.$cedula.'. Ya se encuentra registrado en el sistema");</script>'; 
             echo '<script>document.location.href="../index.php" </script>';
 			//header("location:/sivaa/index.php?alerta_usuario=1"); //Envia alerta de usuario ya registrado
 		}
 	} else {
-		echo '<script language="javascript">alert("El documento '.$cedula.'. No se encuentra registrado.\\nComuniquese con el administrador");</script>'; 
+		echo '<script language="javascript">alert("El número de documento '.$cedula.'. No se encuentra creado en el sistema.\\nComuniquese con el administrador.");</script>'; 
         echo '<script>document.location.href="../index.php" </script>';
 		//header("location:/sivaa/index.php?error_usuario=1"); //Envia alerta de numero de documento incorecto
 	}
@@ -61,7 +61,7 @@ if ($_POST['ingresar_usuario'] == 1) {
        <br /><br />
        Bienvenido al Sistema de Información SIVAA, (Sistema de verificación de ambientes de aprendizaje), haga clic en el siguiente enlace para activar su usuario.
        <br /><br />
-      <a href='http://localhost:8080/sivaa/view/app/pages/usuario_activo.php?cedula=$cedula&token=$code'>Haga clic aquí para activar su usuario.</a>
+       <a href='http://localhost:8080/sivaa/view/app/pages/usuario_activo.php?cedula=$cedula&token=$code'>Haga clic aquí para activar su usuario.</a>
 
        <br /><br />
        ";
@@ -90,11 +90,11 @@ if ($_POST['ingresar_usuario'] == 1) {
 
 	  if(!$mail->Send()) 
 	  {
-	    echo '<script language="javascript">alert("no fue posible enviar correo de validacion.'.$mail->ErrorInfo.'");</script>';
+	    echo '<script language="javascript">alert("No fue posible enviar correo de validacion.'.$mail->ErrorInfo.'");</script>';
 	    echo '<script>document.location.href="../index.php" </script>';
 	  exit;
 	  } else {
-	    echo '<script language="javascript">alert("Se a enviado un mensaje al correo: '.$correo.' para realizar la activación del usuario. \\nSi no lo encuntra en bandeja de entrada, revice la bandeja spam");</script>'; 
+	    echo '<script language="javascript">alert("Se ha enviado un correo electrónico a: '.$correo.' para realizar la activación del usuario. \\nSi no lo encuntra en bandeja de entrada, revice la bandeja spam.");</script>'; 
 	    echo '<script>document.location.href="../index.php" </script>';
 	  }       
    }

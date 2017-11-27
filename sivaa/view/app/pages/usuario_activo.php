@@ -29,7 +29,7 @@ $token = $_GET['token'];
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>usuario activo</title>
+		<title>Activar el usuario</title>
 		<link rel="icon" href="/sivaa/view/app/img/favicon.ico" type="image/x-icon">
 		<link href="/sivaa/view/app/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="/sivaa/view/app/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -43,11 +43,11 @@ $token = $_GET['token'];
 				<div class="col-md-6 col-md-offset-3">
 					<div class="login-panel panel panel-default">
 						<div class="panel-heading">
-							<h3>usuario activo: <?php echo $cedula ?></h3>
+							<h3>Se ha realizado la activación del usuario: <?php echo $cedula ?></h3>
 						</div>
 						<div class="panel-body">
 							<form action="../../../index.php" >
-								<input type="submit" class="btn btn-success" value=" usuario activo" >
+								<input type="submit" class="btn btn-success" value="Continuar" >
 							</form>
 						</div>
 					</div>

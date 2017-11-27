@@ -7,11 +7,11 @@ require_once("../../../model/modelo_olvido_password.php");
 $cedula = $_GET['cedula'];
 $token = $_GET['token'];
 
-	$sqlcedula = new olvido_password();
-	$consulta_cedula = $sqlcedula->recuperacion_correo($cedula,$token);
+$sqlcedula = new olvido_password();
+$consulta_cedula = $sqlcedula->recuperacion_correo($cedula,$token);
 
 
-       if ($consulta_cedula != 0) {
+if ($consulta_cedula != 0) {
 
 ?>
 
@@ -29,6 +29,7 @@ $token = $_GET['token'];
 		<link href="/sivaa/view/app/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 		<link href="/sivaa/view/app/dist/css/sb-admin-2.css" rel="stylesheet">
 		<link href="/sivaa/view/app/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="/sivaa/view/app/vendor/css/style.css" rel="stylesheet">
 		<script language=Javascript>
 			function justNumbers(e) {
 				var keynum = window.event ? window.event.keyCode : e.which;
@@ -44,7 +45,7 @@ $token = $_GET['token'];
 				<div class="col-md-6 col-md-offset-3">
 					<div class="login-panel panel panel-default">
 						<div class="panel-heading">
-							<h3>Restaurar contraseña usuario: <?php echo $cedula ?></h3>
+							<h3>Restaurar contraseña del usuario: <?php echo $cedula ?></h3>
 						</div>
 						<div class="panel-body">
 							<form action="../../../controller/controlador_olvido_password.php" method="POST" id="registro_pass">
@@ -90,8 +91,7 @@ $token = $_GET['token'];
 	</body>
 </html>
 <?php
-}else{
-
+}else {
   echo "<script> alert('No fue posible restaurar la contraseña por favor intente nuevamente');</script>";
   echo '<script>document.location.href="../../../index.php" </script>';
 }

@@ -34,7 +34,7 @@ error_reporting(0);
 				<div class="col-md-4 col-md-offset-4">
 					<div class="login-panel panel panel-default">
 						<div class="panel-heading">
-							<h2>Inicio se sesión</h2>
+							<h2>Inicio de sesión</h2>
 						</div>
 						<div class="panel-body">
 							<form action="controller/controlador_sesiones.php" method="POST" id="login">

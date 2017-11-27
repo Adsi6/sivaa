@@ -34,10 +34,9 @@ session_start();
             </nav>
             <div id="page-wrapper">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="text-align: center;">
+                        <img src="../img/Sena_logo.png">
                         <h1> SERVICIO NACIONAL DE APRENDIZAJE SENA</h1>
-                        <h3> Procedimiento Ejecución de la Formación Profesional Integral </h3>
-                        <h4> LISTA DE CHEQUEO AMBIENTE DE APRENDIZAJE</h4>
                         <h5> SIVAA</h5>
                         <div class="page-header" ></div>
                     </div>
